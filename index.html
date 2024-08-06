@@ -1,0 +1,3480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WARRIOT</title>
+
+    <!-- FUENTE CINZEL -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
+    <!-- FUENTE POPPINS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ICONOS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<style>
+
+
+    .home{
+        display: block;
+    }
+    .home.activo{
+        display: none;
+    }
+
+    .somos{
+        display: none;
+    }
+    .somos.activo{
+        display: block;
+    }
+
+    .contacto{
+        display: none;
+    }
+    .contacto.activo{
+        display: block;
+    }
+
+    .reservar{
+        display: none;
+    }
+    .reservar.activo{
+        display: block;
+    }
+
+
+/*-LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN-*/
+/*-LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN-*/
+
+.contenedor-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    min-width: 200px;
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    z-index: 1199;
+    visibility: hidden;
+    backdrop-filter: blur(2px);
+    top: 0;
+}
+
+.cont-form .img{
+    width: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;  
+}
+
+.cont-form{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    width: 350px;
+    height: 350px;
+    background-color: #1a1a1a;
+    /* backdrop-filter: blur(10px); */
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: height 0.2s ease, width 0.2s ease;
+    overflow: hidden;
+    border: 2px solid #a49264;
+}
+
+.cont-form.activo{
+    height: 600px;
+    width: 450px;
+}
+
+.formulario{
+    height: 100%;
+    width: 100%;
+    padding: 20px 30px;
+    font-family: 'poppins';
+    gap: 15px;
+    font-size: 12px;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    overflow: auto;
+}
+
+.form-login{
+    transition: transform .18s ease;
+    transform: translateX(0px);
+}
+
+.cont-form.activo .form-login{
+    transition: none;
+    transform: translateX(-450px);
+}
+
+.formulario .titulo-form{
+    font-size: 1.7em;
+    color: white;
+    font-weight: 500;
+    margin: 0px;
+    text-align: center;
+    font-family: 'cinzel';
+}
+
+.cont-form .cont-entrada{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.cont-input{
+    display: flex;
+    border-bottom: 2px solid #a49264;
+}
+
+.cont-entrada .entrada{
+    padding-left: 10px;  
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    
+}
+.cont-entrada i{
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.user-login-error{
+    font-size: 12px;
+    color: red;
+}
+
+.cont-form .olvidaste{
+    color: white;
+    font-size: 0.7rem;
+    text-decoration: none;
+}
+
+.cont-form .cont-botones{
+    position: relative;
+    width: 100%;
+    height: 35px;
+}
+
+.cont-botones .boton{
+    background-color: #a49264;
+    color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 17px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    transition: color .5s;
+}
+
+.cont-form p{
+    color: white;
+    font-weight: 400;
+    margin: 0;
+}
+
+.cont-form .link-registro{
+    color: #a49264;
+}
+
+/*------ formulario registro-----------*/
+
+.form-registro{
+    position: absolute;
+    transition: none;
+    transform: translate(450px);
+}
+
+.cont-form.activo .form-registro{
+    transition: transform .18s ease;
+    transform: translateX(0px);
+}
+
+.cont-form .cont-doble-entrada{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+/*-HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER-*/
+/*-HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER-*/
+
+.boton-menu{
+    cursor: pointer;
+    display: none;
+}
+.boton-menu:hover{
+    color: #a49264;
+    scale: 1.2;
+}
+
+header .titulo-menu{
+    display: none;
+}
+
+header .nav-menu{
+    display: none;
+}
+
+header .navegacion{
+    display: flex;
+    align-items: center;
+}
+header .nav{
+    gap: 20px;
+}
+
+
+.boton-reservar{
+    display: none;
+}
+.boton-reservar.activo{
+    display: block;
+}
+
+@media(width <1024px){
+    .navegacion .boton-reservar{
+    display: none;
+}
+}
+
+
+/*-nav menu--nav menu--nav menu--nav menu--nav menu--nav menu--nav menu--nav menu--nav menu--nav menu--nav menu-*/
+/*-nav menu--nav menu--nav menu--nav menu--nav menu--nav menu--nav menu--nav menu--nav menu--nav menu--nav menu-*/
+
+@media (width < 620px){
+
+    .boton-menu{
+        font-size: 40px;
+        color: white;
+        display: flex;
+    }
+
+    .nav-menu{
+        background-color: #1a1a1a;
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 100vh;
+        right: -200px;
+        top: 0;
+        /* bottom: 0; */
+        transition: transform 0.5s;
+        position: absolute;
+        padding: 30px 20px;
+        z-index: 100;
+        overflow: auto;
+    }
+
+    .nav-menu.activo{
+        transform: translateX(-200px);
+    }
+    
+    header .titulo-menu{
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        border-bottom: 2px solid #a49264;
+        font-size: 40px;
+        align-items: center;
+        
+    }
+    
+}
+
+/*------------------header---------------*/
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 200px;
+    font-family: 'cinzel';
+    padding: 20px 100px;
+    background: linear-gradient(rgba(0, 0, 0, 0.925),
+    rgba(12, 12, 12, 0.826),
+    rgba(20, 20, 20, 0.708),
+    rgba(0, 0, 0, 0.433));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    backdrop-filter: blur(5px);
+    flex-direction: column;
+}
+
+header .cont-logo{
+    display: block;
+    text-align: center;
+    font-family: 'cinzel';
+    cursor: pointer;
+}
+header .cont-logo a{
+    display: inline-block;
+}
+header .cont-logo h2{
+    color: white;
+    margin: 0px;
+    font-size: clamp(15px, 3vw, 25px);
+}
+
+header nav a{
+    position: relative;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    
+
+}
+header .boton-login{
+    width: 130px;
+    height: 40px;
+    margin-left: 40px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    font-family: 'cinzel';
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: 0.5s;
+    transition: scale 0.2 ease;
+}
+
+header .cont-header-1{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*------------- efecto-boton---------------*/
+
+header .boton-login:hover{
+    background-color: #a49264;
+    border-color: #a49264;
+    scale: 1.05;
+}
+
+header .boton-login:active{
+    scale: 0.90;
+}
+
+header .nav a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    left: 0;
+    bottom: -6px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+header .nav a:hover::after{
+    transform: scaleX(1);
+}
+
+
+
+/* ---------- CONTROL USUARIO ---------------- */
+
+
+.menu-usuario{
+    display: none;
+    height: 30px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid #a49264;
+    border-radius: 20px;
+    outline: none;
+    font-family: 'poppins';
+    padding: 0px 5px;
+}
+.menu-usuario.activo{
+    display: block;
+}
+.menu-usuario option{
+    background-color: #1a1a1a;
+}
+
+.boton-login.oculto{
+    display: none;
+}
+
+.menu-usuario-nav{
+    margin-top: auto;
+}
+
+@media (width <= 1024px){
+
+    .nav-menu .menu-usuario.activo{
+        display: none;
+    }
+
+    .btn-login-menu{
+        display: none;
+    }
+    
+}
+@media (width <= 620px){
+
+    .menu-usuario.activo{
+        display: none;
+    }
+
+    .nav-menu .menu-usuario.activo{
+        display: block;
+    }
+
+    .navegacion .boton-login.oculto{
+        display: none;
+    }
+
+}
+
+/*-FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER-*/
+/*-FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER-*/
+
+
+footer{
+    width: 100%;
+    min-width: 200px;
+    background-color: #151515;
+    min-height: 50vh;
+    position: relative;
+}
+footer .autor{
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+}
+
+footer .cont-footer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 30px 100px;
+}
+
+footer .cont-logo{
+    display: flex;
+    align-items: center;
+}
+
+footer .cont-logo-redes{
+    display: flex;
+    border-bottom: 2px solid white;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    justify-content: space-between;
+}
+
+footer .cont-logo h2{
+    color: white;
+    margin: 0px 10px;
+    
+}
+
+footer .redes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  
+}
+footer .redes ul{ 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+footer .redes li{
+    cursor: pointer;
+    display: inline-block;
+    width: 35px;
+    font-size: 35px;
+    margin-left: 10px;
+    
+}
+
+footer .redes a{
+    text-decoration: none;
+    color: white;
+}
+
+
+footer .cont-links-direccion{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+footer .cont-direccion{
+    width: 40%;
+    height: 100%;
+    padding-right: 30px;
+}
+
+footer .cont-links{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 60%;
+    padding-left: 30px;
+  
+}
+
+footer .cont-links ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+    
+}
+footer .cont-links ul a{
+    text-decoration: none;
+    color: white;
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 1024px){
+
+    header{
+        padding: 20px;
+    }
+    
+
+    header .cont-header-1{
+        border-bottom: 2px solid #a49264;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    header .navegacion a{
+        display: none;
+    }
+
+    header .nav-menu{
+        display: flex;
+    }
+    header .btn-login-menu{
+        display: none;
+    } 
+
+    /*----------------------footer--------------------*/
+    
+    footer .cont-footer{
+        padding: 20px 50px;
+    }
+
+    footer .cont-logo-redes{
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+
+    footer .cont-links-direccion{
+        flex-direction: column;
+    }
+    footer .cont-direccion{
+        width: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    
+    footer .cont-links{
+        width: 100%;
+        padding: 0;
+    }
+}
+
+
+
+@media (max-width: 620px){ 
+
+    header .boton-nav{
+        display: none;
+    }
+    header .btn-login-menu{
+        display: block;
+        margin-top: auto;
+        margin-left: 0;
+        width: 100%;
+    
+    }
+
+    header .cont-header-1{
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    header .nav a{
+        margin: 0;
+    }
+
+
+    
+    /*--------------------footer----------------------------*/
+
+    footer .cont-logo-redes{
+        flex-direction: column;
+    }
+
+    footer .cont-logo{
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    footer .redes li{
+        margin: 0px 10px;
+    }
+
+    footer .cont-direccion{
+        text-align: center;
+        border-bottom: 2px solid white;
+    }
+
+    footer .cont-links ul{
+        margin: 0;
+    }
+
+    footer .cont-links{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    footer .cont-res{
+        text-align: center;
+    }
+}
+
+@media (max-width: 300px){ 
+    footer .cont-footer{
+        padding: 20px 20px;
+    }
+}
+
+
+/*-HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME-*/
+/*-HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME--HOME-*/
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+    
+}
+
+h1, h2, h3, h4, h5{font-family: 'cinzel';}
+
+.titulo-body{
+    min-width: 200px;
+    font-size: 12vh;
+    margin: 0 100px;
+    margin-bottom: 50px;
+    border-bottom: 3px solid #a49264;
+}
+
+.boton{
+    background-color: #a49264;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.433);
+    transition: 0.5 ease;
+}
+
+.boton:hover{
+    background-color: #baab85;
+    scale: 1.05;
+}
+
+
+/*--------------------baner------------------------*/
+
+.slide-baner{
+    
+    align-items: center;
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    min-width: 200px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    
+}
+
+
+.carrusel-baner{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    transition: all 1s;
+    width: 300%;
+    height: 100%;
+
+}
+
+.img-baner{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* .carrusel-baner .img-baner{
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+
+} */
+
+.arrow-baner{
+    position: absolute;
+    z-index: 3;
+    color: white;
+    font-size: 80px;
+    cursor: pointer;
+    top: 40%;
+}
+
+.flecha-de-baner{
+    right: 0; 
+}
+
+.home .cont-titulo-baner{
+    position: absolute;
+    width: 100%;
+    padding-left: 100px;
+    margin-bottom: 50px;
+    z-index: 2;
+    color: white;
+    bottom: 0px;
+   
+}
+
+.home .cont-titulo-baner h1{
+    font-size: clamp(36px, 8vw, 88px);
+}
+.home .cont-titulo-baner p{
+    font-size: clamp(10px, 5vw, 25px);
+}
+
+/*----------------------navegacion 2----------------------*/
+
+.navegacion-2{
+    margin-bottom: 100px;
+}
+.cont-nav{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 60px;
+    min-width: 200px;
+    padding: 0 100px;
+    overflow: hidden;
+    
+}
+.navegacion-2 ul{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font: normal 20px Cinzel, sans-serif;
+    
+}
+.navegacion-2 ul li{
+    margin-right: 15px;
+    border-right: 2px solid #a49264;
+    padding-right: 15px;
+}
+
+.navegacion-2 a{
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+
+.navegacion-2 a:hover{
+    color: #a49264;
+    font-weight: bold;
+}
+
+
+/*---------------------hoteles--------------------*/
+.grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    width: 100%;
+    min-height: 500px;
+    /* min-width: 350px; */
+    padding: 0px 100px;
+    margin-bottom: 100px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas con un ancho mínimo de 200px */
+    grid-auto-rows: auto; /* Altura automática para las filas */
+    grid-auto-flow: row; /* Los elementos se acomodan automáticamente en la siguiente fila */
+    grid-gap: 15px; /* Espacio entre los elementos */
+    
+}
+@media (width < 650px){
+    .grid{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas con un ancho mínimo de 200px */
+
+    }
+}
+
+.grid .grid-img{
+
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 500px;  
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.433);
+    overflow: hidden;
+    
+}
+
+.hoteles .cont-hot-texto{
+    background-color: rgba(0, 0, 0, 0.433);
+    backdrop-filter: blur(2px);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 100px;
+    color: white;
+    padding: 20px;
+    
+}
+
+/*-------------------habitaciones---------------------*/
+
+.cont-habitaciones{
+    display: grid;
+    width: 100%;
+    min-width: 200px;
+    padding: 0 100px;
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-auto-rows: auto;
+    grid-auto-flow: row; 
+    grid-gap: 20px; 
+}
+
+@media (width < 650px){
+    .cont-habitaciones{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    }
+}
+
+.habitaciones .hab{
+    min-height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.4);
+}
+
+.slide{
+    position: relative;
+    width: 100%;
+}
+
+.carrusel{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    height: 100%;
+    width: 300%;
+    transition: all 1s;
+}
+
+.habitaciones .cont-img{
+    display: flex;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;;
+    width: 100%;
+
+}
+
+.slide .arrow{
+    position: absolute;
+    z-index: 2;
+    color: white;
+    font-size: 80px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.slide .flecha-de{
+    right: 0;
+}
+
+.habitaciones .cont-texto{
+    text-align: center;
+    background-color: whitesmoke;
+    padding: 20px 30px;
+}
+
+.habitaciones p{
+    min-height: 50px;
+    text-align: justify;
+    padding: 0 10px;
+}
+.habitaciones h2{
+    border-bottom: 2px solid #a49264;
+    margin-bottom: 12px;
+}
+@media(max-width: 1200px){
+    .habitaciones .hab-3{
+        grid-template-rows: 1fr 1fr;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        min-height: 600px;
+    }
+} 
+@media(max-width: 1025px){
+    .habitaciones .hab-3{
+        grid-column-start: 1;
+        grid-column-end: 1;
+
+    }
+}
+
+
+/*-------------------servicios---------------------*/
+
+.servicio{
+    background-color: #151515;
+    min-width: 200px;
+    padding: 30px 0px;
+}
+
+.servicio .titulo-body{
+    color: white;
+}
+
+.servicio .bloque{
+    display: grid;
+    gap: 20px;
+    min-height: 600px;
+    width: 100%;
+    padding: 30px 100px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-auto-rows: auto; 
+    grid-auto-flow: row; 
+    grid-gap: 15px; 
+}
+@media (width < 650px){
+    .servicio .bloque{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas con un ancho mínimo de 200px */
+
+    }
+}
+
+.servicio .bloque-img-1{
+    background-position: center center;
+    background-size: cover; 
+    border-radius: 5px;
+    min-height: 400px;
+    position: relative;
+}
+
+.servicio .bloque-img{
+    border-radius: 5px;
+    background-position: center center;
+    background-size: cover;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.servicio .cont-texto-bloque{
+
+    width: 100%;
+    min-height: 100px;
+    position: absolute;
+    bottom: 0;
+    padding: 30px;
+    color: white;  
+}
+
+/*-------------------final---------------------*/
+
+.cont-final{
+    width: 100%;
+    min-width: 200px;
+    min-height: 80vh;
+    display: flex;
+}
+
+.cont-final-img{
+    width: 50%;
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+}
+
+.cont-final-texto{
+    background-color: whitesmoke;
+    min-height: 100%;
+    width: 50%;
+    padding: 30px  100px;
+    overflow: auto;
+    display: inline-block;
+}
+.cont-final-texto h2{
+    font-family: 'cinzel';
+    font-size: clamp(15px, 4vw, 45px);
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.cont-final-texto p{
+    text-align: justify;
+    margin-bottom: 30px;
+    font-size: clamp(10px, 3vw, 16px);
+}
+
+.cont-final-texto p {
+    word-wrap: break-word;
+}
+
+
+
+
+@media (max-width: 1024px){
+
+    .titulo-body{
+        font-size: 52px;
+        margin: 0 50px;
+        margin-bottom: 30px;
+    }
+
+
+    /*----------------------navegacion 2--------------------*/
+
+    .navegacion-2{
+        margin-bottom: 50px;
+    }
+    .navegacion-2 .cont-nav{
+        padding: 0 50px;
+    }
+
+    /*----------------------hoteles----------------------------*/
+
+    .grid{
+        padding: 0 50px;
+    }
+
+    /*----------------------habitaciones-----------------------*/
+
+    .habitaciones .cont-habitaciones{
+        padding: 0 50px;
+    }
+
+    /*----------------------servicios--------------------------*/
+    
+    .servicio .bloque{
+        padding: 0 50px;
+    }
+
+    /*----------------------final------------------------------*/
+
+    .cont-final{
+        width: 100%;
+        min-height: auto;
+        flex-direction: column;
+    }
+    
+    .cont-final-img{
+        width: 100%;
+        height: 400px;   
+    }
+    
+    .cont-final-texto{
+        height: 30%;
+        width: 100%;
+        padding: 30px 50px;
+    }
+
+}
+    
+@media (max-width: 620px){
+
+    .titulo-body{
+        font-size: 22px;
+        margin: 0 ;
+        padding: 0 20px;
+        margin-bottom: 30px;
+        word-break: break-all;
+    }
+
+    /*---------------baner--------------------------*/
+
+    .home .cont-titulo-baner{
+        padding-left: 0px;
+        text-align: center;
+    }
+    
+
+    /*----------------navegacion 2------------------*/
+
+    .navegacion-2 .cont-nav{
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navegacion-2 ul{
+        flex-direction: column;
+    }
+
+    .navegacion-2 ul li{
+        margin: 0;
+        margin-bottom: 10px;
+        border-right: none;
+        border-bottom: 2px solid #a49264;
+    }
+
+    /*------------------hoteles----------------------*/
+    
+    .grid{
+        padding: 0;
+    }
+
+    /*------------------habitaciones-----------------*/
+
+    .habitaciones .cont-habitaciones{
+        padding: 0;
+        width: 100%;
+        grid-gap: 20px;
+    }
+
+    /*-------------------servicios-------------------*/
+
+    .servicio .bloque{
+        padding: 0;
+        /* grid-column: 1fr; */
+    }
+
+}
+
+@media (width < 300px){
+    .cont-final-texto{
+        padding: 10px;
+    }
+}
+
+/*-SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS-*/
+/*-SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS-*/
+
+
+.somos .baner{
+    display: flex;
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 100%;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.somos .cont-titulo-baner{
+    width: 100%;
+    align-self: flex-end;
+    padding-left: 100px;
+    padding-bottom: 50px;
+}
+
+.somos .cont-titulo-baner h1{
+    font-size: 88px;
+
+}
+.somos .cont-titulo-baner p{
+    font-size: 25px;
+}
+
+
+/*----------------------valores----------------------*/
+
+.somos .valores{
+    margin-bottom: 50px;
+}
+
+.somos .valores .cont-valores{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-width: 200px;
+    padding: 0px 100px;
+     
+}
+.somos .valores h2{
+    border-bottom: 3px solid #a49264;
+    margin-bottom: 20px;
+}
+
+.somos .valores .cont-g{
+    
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+.somos .valores .cont-g p{
+    text-align: justify;
+}
+
+/*----------------------historia----------------------*/
+.somos .historia{
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.somos .cont-historia{
+    display: flex;
+    min-width: 200px;
+    min-height: 70vh;
+    margin: 0px 100px;
+    margin-bottom: 30px;
+}
+
+.somos .cont-historia .cont-img{
+    flex: 1.2;
+    min-height: 40vh;
+    background-position: center;
+    background-size: cover;
+
+}
+.somos .cont-historia .cont-texto{
+    flex: 1;
+    padding: 30px 50px;
+    text-align: justify;
+}
+.somos .cont-historia h2{
+    margin-bottom: 20px;
+    font-size: 52px;
+    text-align: left;
+}
+
+/*----------------------vision----------------------*/
+
+#vision{
+    width: 100%;
+}
+
+.somos .cont-vision{
+    display: flex;
+    background-color: rgb(10, 10, 10);
+    
+    min-width: 200px;
+    color: white;
+    min-height: 70vh;
+    margin: 0px 100px;
+}
+
+.somos .cont-vision .cont-img{
+    flex: 1.2;
+    min-height: 40vh;
+    background-position: center;
+    background-size: cover;
+
+}
+.somos .cont-vision .cont-texto{
+    flex: 1;
+    padding: 30px 50px;
+    text-align: justify;
+}
+.somos .cont-vision h2{
+    margin-bottom: 20px;
+    font-size: 52px;
+    text-align: left;
+}
+
+
+@media (max-width: 1024px){
+
+
+    /*------------------baner--------------------*/
+
+    .somos .baner .cont-titulo-baner h1{
+        font-size: 62px;
+    }
+
+
+
+    /*------------------valores------------------*/
+
+
+    .somos .valores .cont-valores{
+        padding: 0px 50px;
+    }
+
+    /*-----------------historia vision-----------*/
+
+    .somos .historia .cont-historia{
+        flex-direction: column;
+        margin: 0px 50px;
+    }
+
+    .somos .historia h2{
+        text-align: center;
+    }
+
+    .somos .vision .cont-vision{
+        flex-direction: column;
+        margin: 0px 50px;
+    }
+
+    .somos .vision h2{
+        text-align: center;
+        font-size: 42px;
+    }
+    .somos .historia h2{
+        text-align: center;
+        font-size: 42px;
+    }
+
+}
+        
+@media (max-width: 620px){
+
+    /* .titulo-body{
+        margin-bottom: 30px;
+        font-size: 32px;
+        margin-left: 50px;
+    }
+ */
+
+
+    /*---------------baner--------------------*/
+    .somos .baner .cont-titulo-baner{
+        padding-left: 0px;
+    }
+    
+    .somos .baner .cont-titulo-baner h1{
+        font-size: 36px;
+        text-align: center;
+    }
+    .somos .baner .cont-titulo-baner p{
+        font-size: 10px;
+        text-align: center;
+    }
+
+
+
+    /*-----------valores--------------------*/
+    
+    .somos .valores .cont-valores{
+        flex-direction: column;
+        padding: 0px 50px;
+    }
+
+    .somos .valores .cont-g{
+        padding: 20px 0px;
+    }
+    /*------------historia vision--------------*/
+
+    .somos .historia .cont-historia{
+        width: 100%;
+        margin: 0;
+    }
+
+    .somos .vision .cont-vision{
+        flex-direction: column-reverse;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .somos .vision h2{
+        font-size: 22px;
+    }
+
+    .somos .historia h2{
+        font-size: 22px;
+    }
+
+}
+
+@media (max-width: 300px){
+
+    .somos .baner .cont-titulo-baner h1{
+        font-size: 20px;
+    }
+
+    .somos .valores .cont-valores{
+        flex-direction: column;
+        padding: 0px 10px;
+    }
+
+    .somos .cont-historia .cont-texto{
+        padding: 10px;
+        font-size: 10px;
+    }
+    .somos .cont-vision .cont-texto{
+        padding: 10px;
+        font-size: 10px;
+    }
+
+
+
+    .somos .form-contacto{
+        padding: 0px 10px;
+    }
+}
+
+
+/*-CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO-*/
+/*-CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO-*/
+
+/*--------------------baner------------------------*/
+
+.contacto .baner{
+    display: flex;
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 100%;
+    min-width: 200px;
+    margin-bottom: 30px;
+    justify-content:center;
+}
+
+.contacto .cont-titulo-baner{
+    width: 100%;
+    align-self: flex-end;
+    padding-left: 100px;
+    padding-bottom: 50px;
+}
+
+.contacto .cont-titulo-baner h1{
+    font-size: 88px;
+}
+
+.contacto .baner .cont-titulo-baner p{
+    font-size: 25px;
+}
+
+/*----------------------form-contacto----------------------*/
+
+.contacto .form-contacto{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 100px;
+    width: 100%;
+    min-width: 200px;
+    margin-bottom: 30px;
+    font-family: 'poppins';
+}
+
+.contacto .form-contacto .form-group{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+.contacto .form-contacto label{
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.contacto .form-contacto .form-email{
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.contacto .form-contacto textarea{
+    border-radius: 5px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.contacto .form-contacto .form-boton{
+    background-color: #a49264;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.433);
+    transition: 0.5s;
+    align-items: center;
+}
+
+.contacto .form-contacto .form-boton:hover{
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 1024px){
+
+    /*----------------------baner--------------------*/
+    
+    .contacto .baner .cont-titulo-baner h1{
+        font-size: 56px;
+    }
+    .contacto .baner .cont-titulo-baner p{
+        font-size: 20px;
+    }
+
+}
+    
+@media (max-width: 620px){
+
+    /*----------------baner--------------------*/
+
+    .contacto .baner .cont-titulo-baner{
+        padding-left: 0px;
+    }
+    
+    .contacto .baner .cont-titulo-baner h1{
+        font-size: 36px;
+        text-align: center;
+        margin-left: 0;
+    }
+    .contacto .baner .cont-titulo-baner p{
+        font-size: 10px;
+        text-align: center;
+    }
+
+    /*----------------form-contacto-------------*/
+
+    .contacto .form-contacto{
+        padding: 0px 50px;
+        justify-content: center;
+    }
+
+    .contacto .form-contacto .cont-boton{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 300px){
+
+    .contacto .baner .cont-titulo-baner h1{
+        font-size: 20px;
+
+    }
+
+    .contacto .form-contacto{
+        padding: 0px 10px;
+    }
+}
+
+    /*-RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR-*/
+    /*-RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR--RESERVAR-*/
+
+    .cont-form-reserva{
+        display: none;
+        background-color: #1B2631;
+        margin-top: 150px;
+        margin-bottom: 50px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+        min-width: 200px;
+        padding: 20px;
+        gap: 15px;
+    }
+    .cont-form-reserva.activo{
+        display: block;
+    }
+    .form-contenido{
+        height: auto;
+        gap: 15px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(100px, 1fr));
+        align-items: end;
+    }
+
+
+    .cont-titulo-form{
+        display: flex;
+        padding-bottom: 20px;
+        justify-content: space-between;
+    }
+    .titulo-form{
+        color: white;
+        font-size: 18px;
+    }
+
+    .form-group{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group label{
+        font-size: 11px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .imput{
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid grey;
+        padding: 0 10px;
+    }
+
+    .boton-submit{
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        background-color: #28b463;
+        color: white;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        outline: none;
+    }
+
+    .boton-submit:hover{
+        opacity: .8;
+        scale: 1.02;
+    }
+
+    @media (width < 100px){
+        .imput{
+            min-width: 50px;
+        }
+    }
+
+
+    /*--------------- CONTENIDO RESERVA-----------------*/
+
+    .contenido{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 100px;
+        min-width: 200px;
+
+
+    }
+
+    .contenido .cont-titulo-contenido{
+        background-color: #1B2631;
+        color: white;
+        padding: 5px 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .contenido .boton-descarga{
+        width: 150px;
+        height: 35px;
+        border-radius: 10px;
+        color: white;
+        border: none;
+        background-color: goldenrod;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+        justify-self: end;
+
+    }
+
+    .contenido .data{
+        overflow: auto;
+        font-size: 12px;
+    }
+
+
+    /* ----- tabla ----- */
+
+    /* .contenido table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+        max-height: 200px;
+    }
+
+    .contenido th, td {
+        border: 1px solid #ccc;
+        padding: 5px;
+        text-align: left;
+    }
+
+    .contenido th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    .contenido tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+     */
+
+
+
+/* Estilos básicos para la tabla */
+.contenido table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    max-height: auto;
+}
+
+.contenido th, td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: left;
+}
+
+.contenido th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.contenido tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Media query para pantallas pequeñas */
+@media screen and (max-width: 600px) {
+    .contenido table, .contenido thead, .contenido tbody, .contenido th, .contenido td, .contenido tr {
+        display: block;
+    }
+
+    /* Ocultar cabecera de la tabla en pantallas pequeñas */
+    .contenido thead tr {
+        display: none;
+    }
+
+    /* Estilos para filas y celdas */
+    .contenido tr {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .contenido td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    /* Añadir pseudo-elementos antes de las celdas */
+    .contenido td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        padding-right: 10px;
+        text-align: left;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+}
+
+
+    /* ----- botones-editar-eliminar ----- */
+
+    .contenido .acciones{
+        width: 45%;
+        color: white;
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        border-radius: 5px;
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        transition: scale .3s;
+    }
+    .contenido .acciones:active{
+        scale: 1.2;
+    }
+    .contenido .acciones:hover{
+        opacity: 0.6;
+        scale: 1.04;
+    }
+    .contenido .acciones.editar{
+        background-color: #3175da;
+    }
+    .contenido .acciones.borrar{
+        background-color: red;
+    }
+
+</style>
+    
+</head>
+
+<body>
+
+<!-- -LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN- -->
+<!-- -LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN- -->
+
+<div class="contenedor-login" id="cont-login">
+
+    <div class="cont-form" id="cont-form">
+        
+        <!-- <img class="img" src="/PAGINA-HOTEL-SPA/images/LOGO-HOTEL-FINAL.png" alt=""> -->
+
+        <form action="" id="form-login" class="formulario form-login">
+            
+            <h1 id="titulo-form-login" class="titulo-form">Login</h1>
+
+            <div class="cont-entrada" >
+                <div class="cont-input" id="cont-input-user">
+                    <label for="user-login"><i class='bx bx-user' id="user-login-icono"></i></label>
+                    <input class="entrada" type="text" id="user-login" name="usuario" required placeholder="Usuario">     
+                </div>
+                <label for="user-login" class="user-login-error" id="user-login-error"></label>
+            </div>
+
+
+            <div class="cont-entrada">
+                <div class="cont-input" id="cont-input-clave">
+                    <label for="clave-login"><i class='bx bx-lock-alt' id="clave-login-icono"></i></label>
+                    <input class="entrada" type="password" id="clave-login" name="clave" required placeholder="Contraseña">
+                </div>
+                <label for="user-login" class="user-login-error" id="clave-login-error"></label>
+            </div>
+
+
+            <a class="olvidaste" href="#">¿Olvidaste tu contraseña?</a>
+
+            <div class="cont-botones">
+                <input class="boton" type="submit" value="Login">
+            </div>
+            
+
+            <p>No tienes cuenta?<a href="#" class="link-registro" id="link-login">Register</a></p>
+            
+        </form>
+
+        <form action="" id="form-registro" class="formulario form-registro">
+            
+            <h1 id="ini-sesion" class="titulo-form">Registro</h1>
+
+            <div class="cont-doble-entrada">
+                <div class="cont-nombre cont-entrada">
+                    <div class="cont-input">
+                        <label for="nombre-registro"><i class='bx bx-user' ></i></label>
+                        <input class="entrada ent-reg" type="text" id="nombre-registro" name="nombre" required placeholder="Nombre"> 
+                    </div>
+                    <label for="nombre-registro" class="user-login-error" id="nombre-registro-error"></label> 
+                </div>
+                <div class="cont-apellido cont-entrada">
+                    <div class="cont-input">
+                        <label for="apellido-registro"><i class='bx bx-user' ></i></label>
+                        <input class="entrada ent-reg" type="text" id="apellido-registro" name="apellido" required placeholder="Apellido"> 
+                    </div>
+                    <label for="apellido-registro" class="user-login-error" id="apellido-registro-error"></label> 
+                </div>
+            </div>
+
+            <div class="cont-entrada">
+                <div class="cont-input">
+                    <label for="email-registro"><i class='bx bx-envelope'></i></label>
+                    <input class="entrada ent-reg" type="email" id="email-registro" name="email" required placeholder="Email"> 
+                </div>
+                <label for="email-registro" class="user-login-error" id="email-registro-error"></label> 
+            </div>
+
+            <div class="cont-entrada">
+                <div class="cont-input" id="cont-reg-user">
+                    <label for="user-registro"><i class='bx bx-user' id="user-reg-icono"></i></label>
+                    <input class="entrada ent-reg" type="text" id="user-registro" name="usuario" required placeholder="User"> 
+                </div>
+                <label for="user-registro" class="user-login-error" id="user-registro-error"></label> 
+            </div>
+            <div class="cont-doble-entrada">
+                <div class="cont-entrada">
+                    <div class="cont-input">
+                        <label for="clave-1-reg"><i class='bx bx-lock-alt' ></i></label>
+                        <input class="entrada ent-reg" type="password" id="clave-1-reg" name="clave" required placeholder="Contraseña">
+                    </div>
+                    <label for="clave-1-reg" class="user-login-error" id="clave-1-reg-error"></label> 
+                </div>
+
+                <div class="cont-entrada">
+                    <div class="cont-input">            
+                        <label for="clave-2-reg"><i class='bx bx-lock-alt' ></i></label>
+                        <input class="entrada ent-reg" type="password" id="clave-2-reg" name="clave" required placeholder="Confirm contraseña">
+                    </div>
+                    <label for="clave-2-reg" class="user-login-error" id="clave-2-reg-error"></label> 
+                </div>
+            </div>
+            <div class="cont-botones">
+                <input class="boton" type="submit" value="Registrarse">
+            </div>
+            
+
+            <p>Ya tienes cuenta?<a href="#" class="link-registro" id="link-registro">login</a></p>
+            
+        </form>
+    </div>
+    
+</div>
+
+
+<!-- -HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER- -->
+<!-- -HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER- -->
+
+    <header>
+
+        <div class="cont-header-1">
+            <div class="cont-logo">
+                <a href=""><img class="logo" src="/PAGINA-HOTEL-SPA/images/LOGO-HOTEL-FINAL.png" alt="" width="50px"></a>
+                <a href="" style="text-decoration: none;"><h2>Warriot</h2></a>
+            </div>
+            
+            <nav class="nav navegacion">
+                <a href="" id="boton-home-1" class="boton-home">Home</a>
+                <a href="" id="boton-somos-1" class="boton-somos">Quienes somos</a>
+                <a href="" id="boton-contacto-1" class="boton-contacto">Contacto</a>
+                <a href="" id="boton-reservar-1" class="boton-reservar">Reservar</a>
+                <button id="boton-login-1" class="boton-login boton-nav"  type="button">Login</button>
+                
+                <select name="select" id="user-select" class="menu-usuario">
+                    <option value="user-name" selected id="btn-usuario">Usuario</option>
+                    <option value="cerrar-sesion" id="btn-cerrar-sesion">Cerrar Sesión</option>
+                </select>
+
+            </nav>
+            <!-- <button id="boton-ran" class="boton-login" onclick="iniciarSesion('diego')"  type="button">reserva</button> -->
+
+
+            <div class="boton-menu" id="boton-menu">
+                <i class='bx bx-menu open'></i>
+            </div>
+    
+        </div>
+
+        <nav class="nav nav-menu " id="nav-menu">
+        
+            <div class=" titulo-menu">
+                <h3>Menu</h3>
+                <i class='bx bx-x close boton-menu' id="boton-menu-cerrar"></i>
+            </div>
+
+            <a href="" id="boton-home" class="boton-home">Home</a>
+            <a href="" id="boton-somos" class="boton-somos">Quienes somos</a>
+            <a href="" id="boton-contacto" class="boton-contacto">Contacto</a>
+            <a href="" id="boton-reservar" class="boton-reservar">Reservar</a>
+
+            <button id="boton-login" class="boton-login btn-login-menu"  type="button">Login</button>
+
+            <select name="select" id="user-select-2" class="menu-usuario menu-usuario-nav">
+                <option value="user-name" selected id="btn-usuario">Usuario</option>
+                <option value="cerrar-sesion" id="btn-cerrar-sesion">Cerrar Sesión</option>
+            </select>
+
+        </nav>
+        
+    </header>
+
+
+
+<!-- -HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME -->
+<!-- -HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME-HOME -->
+
+    <section class="home" id="home">
+
+        <!-- ---------------------baner------------------------- -->
+
+        <div class="slide-baner">
+
+            <div class="cont-titulo-baner">
+                <p>Warriot</p>
+                <h1>Buenos Aires</h1>
+            </div>
+            <div class="arrow-baner flecha-iz-baner" id="flecha-iz-baner" >
+                <i class='bx bx-chevron-left' ></i>
+            </div>
+            <div class="arrow-baner flecha-de-baner" id="flecha-de-baner">
+                <i class='bx bx-chevron-right'></i>
+            </div>
+            
+            <div class="carrusel-baner" id="carrusel-baner">
+                <div class="img-baner" style="background-image: url(/PAGINA-HOTEL-SPA/images/baner-hotel.jpg);">
+                    <div>1</div>
+                </div>
+                <div class="img-baner" style="background-image: url(/PAGINA-HOTEL-SPA/images/lobby-1.jpg);">
+                    <div>2</div>
+                </div>
+                <div class="img-baner" style="background-image: url(/PAGINA-HOTEL-SPA/images/lobby-2.jpg);">
+                    <div>3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ---------------------navegacion 2------------------------- -->
+
+        <section class="navegacion-2">
+            <nav class="cont-nav">
+                <ul>
+                    <li><a href="#hoteles">Hoteles</a></li>
+                    <li><a href="#habitaciones">Habitaciones</a></li>
+                    <!-- <li><a href="#precios">Precios</a></li> -->
+                    <li><a href="#servicio">Servicios</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- ---------------------hoteles------------------------- -->
+
+        <section id="hoteles" class="hoteles">
+            <h1 class="titulo-body">hoteles</h1>
+
+            <div class="grid">
+                <div class="grid-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/grid-hotel-1.jpg);">
+                    <div class="cont-hot-texto">
+                        <h2>Buenos Aires</h2>
+                        <P></P>
+                        <button class="boton" type="button"> Ver Mas</button>
+                    </div>
+                </div>
+                    
+                <div class="grid-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/grid-hotel-2.jpg);">
+                    <div class="cont-hot-texto">
+                        <h2>Madrid</h2>
+                        <P></P>
+                        <button class="boton" type="button"> Ver Mas</button>
+                    </div>
+                </div>
+                <div class="grid-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/grid-hotel-3.jpg);">
+                    <div class="cont-hot-texto">
+                        <h2>Roma</h2>
+                        <P></P>
+                        <button class="boton" type="button">Ver Mas</button>
+                    </div>
+                </div>
+        
+            </div>
+        </section>
+        
+        <!-- ---------------------habitaciones------------------------- -->
+
+        <section id="habitaciones" class="habitaciones">
+
+            <h1 class="titulo-body">Habitaciones</h1>
+
+            <div class="cont-habitaciones">
+
+                <div class="hab hab-1">
+                    <div class="slide">
+                        <div class="arrow flecha-iz" id="flecha-iz-1" >
+                            <i class='bx bx-chevron-left' ></i>
+                        </div>
+                        <div class="arrow flecha-de" id="flecha-de-1">
+                            <i class='bx bx-chevron-right'></i>
+                        </div>
+                        <div class="carrusel" id="carrusel-1">
+                            
+                            <div class="cont-img" id="s1-img-1" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-simple.jpg);">
+                                <div></div>
+                            </div>
+                            <div class="cont-img" id="s1-img-2" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño.jpg);">
+                                <div></div>
+                            </div>
+                            <div class="cont-img" id="s1-img-3" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño-2.jpg);">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cont-texto">
+                        <h2>Habitación simple</h2>
+                        <p>Nuestra habitación simple es un acogedor refugio para el viajero solitario que 
+                            busca comodidad y funcionalidad. Con una cama individual de lujo, un baño privado 
+                            elegante y todas las comodidades modernas, esta habitación ofrece un espacio íntimo y 
+                            tranquilo para relajarse después de explorar las maravillas de Buenos Aires.
+                        </p>
+                        <button class="boton" type="button">Reservar</button>
+                    </div>
+                </div>
+
+                <div class="hab hab-2">
+                    <div class="slide">
+                        <div class="arrow flecha-iz" id="flecha-iz-2" >
+                            <i class='bx bx-chevron-left' ></i>
+                        </div>
+                        <div class="arrow flecha-de" id="flecha-de-2">
+                            <i class='bx bx-chevron-right'></i>
+                        </div>
+                        <div class="carrusel" id="carrusel-2">
+                            
+                            <div class="cont-img" id="s1-img-1" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-doble.jpg);">
+                                <div></div>
+                            </div>
+                            <div class="cont-img" id="s1-img-2" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño.jpg);">
+                                <div></div>
+                            </div>
+                            <div class="cont-img" id="s1-img-3" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño-2.jpg);">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cont-texto">
+                        <h2>Habitación doble</h2>
+                        <p>
+                            Nuestra habitación doble es ideal para parejas o amigos que viajan juntos y desean 
+                            compartir una experiencia de alojamiento cómoda y elegante. Con dos camas individuales 
+                            o una cama queen-size, un baño privado amplio y bien equipado, y una decoración acogedora 
+                            y contemporánea, esta habitación ofrece el espacio perfecto para descansar.
+                        </p>
+                        <button class="boton" type="button">Reservar</button>
+                    </div>
+                </div>
+
+                <div class="hab hab-3">
+                    <div class="slide">
+                        <div class="arrow flecha-iz" id="flecha-iz-3" >
+                            <i class='bx bx-chevron-left' ></i>
+                        </div>
+                        <div class="arrow flecha-de" id="flecha-de-3">
+                            <i class='bx bx-chevron-right'></i>
+                        </div>
+                        <div class="carrusel" id="carrusel-3">
+                            
+                            <div class="cont-img" id="s1-img-1" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-suite.jpg);">
+                                <div></div>
+                            </div>
+                            <div class="cont-img" id="s1-img-2" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño.jpg);">
+                                <div></div>
+                            </div>
+                            <div class="cont-img" id="s1-img-3" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño-2.jpg);">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cont-texto">
+                        <h2>Suite</h2>
+                        <p>
+                            Nuestra suite es el epítome del lujo y la sofisticación. Con un amplio dormitorio 
+                            con una lujosa cama king-size y un baño de mármol con 
+                            bañera de hidromasaje, ofreciendo un espacio generoso y refinado para los 
+                            huéspedes más exigentes. Disfrute de vistas panorámicas de la ciudad desde su 
+                            ventana y sumérjase en un oasis de confort y estilo en el corazón de Buenos Aires.
+                        </p>
+                        <button class="boton" type="button">Reservar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------------------precios------------------------- -->
+<!-- 
+        <section id="precios" class="precios">
+
+            <h1 class="titulo-body">Precios</h1>
+            <div class="cont-precios">
+                <h2>Tarifas y Disponibilidad de Habitaciones</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de Habitación</th>
+                            <th>Capacidad</th>
+                            <th>Precio por Noche</th>
+                            <th>Disponibilidad</th>
+                            <th>Servicios Incluidos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Habitación Individual</td>
+                            <td>1 persona</td>
+                            <td>$100</td>
+                            <td>Disponible</td>
+                            <td>Wi-Fi gratuito, Desayuno incluido</td>
+                        </tr>
+                        <tr>
+                            <td>Habitación Doble</td>
+                            <td>2 personas</td>
+                            <td>$150</td>
+                            <td>Disponible</td>
+                            <td>Wi-Fi gratuito, Desayuno incluido, Piscina</td>
+                        </tr>
+                        <tr>
+                            <td>Suite</td>
+                            <td>2 personas</td>
+                            <td>$200</td>
+                            <td>No Disponible</td>
+                            <td>Wi-Fi gratuito, Desayuno incluido, Spa, Gimnasio</td>
+                        </tr>
+                        <tr>
+                            <td>Familiar</td>
+                            <td>4 personas</td>
+                            <td>$250</td>
+                            <td>Disponible</td>
+                            <td>Wi-Fi gratuito, Desayuno incluido, Parque infantil</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            
+        </section> -->
+
+        <!-- ---------------------servicios--------------------------->
+
+        <section id="servicio" class="servicio">
+            <h1 class="titulo-body">Servicios</h1>
+            
+            <div class="bloque">
+                <div class="bloque-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/servicios-gym.jpg);">
+                    <div class="cont-texto-bloque">
+                        <h2>gimnacio</h2>
+                        <P></P>
+                        <button class="boton" type="button"> Ver Mas</button>
+                    </div>
+                </div>
+                <div class="bloque-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-2.jpg);">
+                    <div class="cont-texto-bloque">
+                        <h2>Comodidad</h2>
+                        <P></P>
+                        <button class="boton" type="button"> Ver Mas</button>
+                    </div>
+                </div>
+                <div class="bloque-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/servicios-bar.jpg);">
+                    <div class="cont-texto-bloque">
+                        <h2>Bar</h2>
+                        <P></P>
+                        <button class="boton" type="button"> Ver Mas</button>
+                    </div>
+                </div>
+                <div class="bloque-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/servicios-vino.jpg);">
+                    <div class="cont-texto-bloque">
+                        <h2>Comida</h2>
+                        <P></P>
+                        <button class="boton" type="button"> Ver Mas</button>
+                    </div>
+                </div>
+                <div class="bloque-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/servicios-picina.jpg);">
+                    <div class="cont-texto-bloque">
+                        <h2>picina</h2>
+                        <P></P>
+                        <button class="boton" type="button"> Ver Mas</button>
+                    </div>
+                </div>
+        
+            </div>
+        </section>
+
+        <!-- ---------------------final--------------------------->
+
+        <section id="final" class="final">
+            <div class="cont-final">
+                <div class="cont-final-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/final-imagen.jpg);"></div>
+                <div class="cont-final-texto">
+                    <h2>Bienvenido a la ciudad de la furia</h2>
+                    <p>Recorrer las calles de la ciudad de Buenos Aires en Argentina,
+                        muchas veces a través de sus adoquines, casas patrimoniales 
+                        y cafeterías, sin duda te transporta y te hace pensar que estás en cualquier rincón de la ciudad europea.
+                    </p>
+                    <button class="boton" type="button">Mas</button>
+            
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+<!-- -SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS- -->
+<!-- -SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS--SOMOS- -->
+
+    <SECtion class="somos" id="somos">
+
+        <div class="baner" style="background-image: url(/PAGINA-HOTEL-SPA/images/lobby-1.jpg);">
+            <div class="cont-titulo-baner">
+                <p></p>
+                <h1>Nuestra compañia</h1>
+                
+            </div>
+            
+        </div>
+        
+        <section class="navegacion-2">
+            <nav class="cont-nav">
+                <ul>
+                    <li><a href="#valores">Valores</a></li>
+                    <li><a href="#historia">Historia</a></li>
+                    <li><a href="#vision">Compromiso</a></li>
+                </ul>
+            </nav>
+        </section>
+        
+        
+        <section class="valores" id="valores">
+            <div class="cont-valores">
+                <div class="cont-g">
+                    <h2>Misión</h2>
+                    <p>
+                        Nuestra misión en "Warriot" es superar las expectativas de nuestros huéspedes en cada 
+                        interacción, ofreciendo un servicio impecable, instalaciones de primera clase y experiencias 
+                        memorables que reflejen la esencia de la cultura argentina. Nos comprometemos a mantener los 
+                        más altos estándares de calidad y a cuidar cada detalle para garantizar que cada estancia con 
+                        nosotros sea única y satisfactoria.
+                    </p>
+                </div>
+                <div class="cont-g">
+                    <h2>Visión</h2>
+                    <p>
+                        En "Warriot", aspiramos a ser el epítome de la hospitalidad porteña, donde cada huésped 
+                        se sumerge en la rica cultura y el encanto de Buenos Aires mientras disfruta de una experiencia 
+                        de alojamiento excepcional. Nos esforzamos por ser reconocidos como el destino preferido para 
+                        quienes buscan una combinación perfecta de elegancia, autenticidad y servicio personalizado.
+                    </p>
+                </div>
+                <div class="cont-g">
+                    <h2>Objetivo</h2>
+                    <p>
+                        Nuestro objetivo principal es proporcionar a nuestros huéspedes una experiencia 
+                        verdaderamente inolvidable, donde puedan descubrir la pasión y el ritmo de Buenos Aires mientras se 
+                        sumergen en un ambiente de lujo y comodidad. Buscamos crear un hogar lejos del hogar para nuestros 
+                        visitantes, donde puedan sentirse bienvenidos, seguros y completamente atendidos en todo momento.
+                    </p>
+                </div>
+            </div>
+                
+        </section>
+        
+        
+        <section class="historia" id="historia">
+        
+            <h1 class="titulo-body">Historia</h1>
+        
+            <div class="cont-historia">
+                <div class="cont-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/hotel-antiguo.jpg);"></div>
+                
+                <div class="cont-texto">
+                    <h2>Nuestro inicio</h2>
+                    <p>Hace décadas, en el corazón de Buenos Aires, un apasionado empresario del mundo del tango 
+                        y la hospitalidad decidió convertir una antigua casona en un refugio de elegancia y encanto. 
+                        Inspirado por la rica cultura porteña, fundó "Warriot", un hotel que pronto se convirtió en 
+                        un ícono de la ciudad. Con el paso de los años, "Warriot" ha acogido a viajeros de todo el mundo, 
+                        ofreciéndoles una experiencia única que fusiona la tradición y la modernidad en un ambiente de lujo 
+                        y calidez. Hoy, seguimos siendo fieles a esa visión, comprometidos a brindar a nuestros huéspedes una 
+                        estancia inolvidable en el corazón de Buenos Aires.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <section class="vision" id="vision">
+        
+            <h1 class="titulo-body">Compromiso</h1>
+        
+            <div class="cont-vision">
+                <div class="cont-texto">
+                    <h2>Comprometidos con nuestros huespedes</h2>
+                    <p>En "Warriot", nuestra visión es ser el destino de elección para aquellos que buscan 
+                        sumergirse en la esencia vibrante y cultural de Buenos Aires mientras disfrutan del 
+                        más alto nivel de hospitalidad y servicio. Nos esforzamos por ofrecer a nuestros huéspedes 
+                        una experiencia que trascienda las expectativas, combinando la elegancia clásica con comodidades 
+                        modernas en un ambiente acogedor y sofisticado. Nos comprometemos a preservar y celebrar la rica 
+                        historia y tradiciones de la ciudad, mientras nos adaptamos a las necesidades y deseos cambiantes 
+                        de nuestros huéspedes. Con pasión y dedicación, aspiramos a ser reconocidos como el punto de referencia 
+                        en hospitalidad argentina, donde cada visita se convierte en una experiencia inolvidable de lujo, cultura y calidez humana.
+                    </p>
+                </div>
+        
+                <div class="cont-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/hotel-antiguo.jpg);"></div>
+            </div>
+        </section>
+        
+    </SECtion>
+
+
+<!-- -CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--->
+<!-- -CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--->
+
+    <section class="contacto" id="contacto">
+
+        <div class="baner" style="background-image: url(/PAGINA-HOTEL-SPA/images/lobby-2.jpg);">
+            <div class="cont-titulo-baner">
+                <p>¿Como podemos ayudarte?</p>
+                <h1>Contactanos</h1>
+                
+            </div>
+            
+        </div>
+
+        <form id="formulario-contacto" class="form-contacto" >
+            <div class="form-group">
+                <label for="email-cont">Email</label>
+                <input class="form-email" type="email" id="email-cont" name="email" value="" required placeholder="nombre@mail.com">
+            </div>
+            <div class="form-group">
+                <label for="tarea">Envíanos un mensaje</label>
+                <textarea id="tarea" name="mensaje" cols="30" rows="10" required placeholder="Mensaje"></textarea>
+            </div>
+            <div class="cont-boton">
+                <input class="form-boton" type="submit" value="Enviar">
+            </div>
+        </form>
+
+    </section>
+
+<!-- -RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA- -->
+<!-- -RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA- -->
+    
+    <section class="reservar" id="reservar">
+        <!-- ---------------------------- FORM ENVIO -------------------------------- -->
+
+        <div class="cont-form-reserva activo" id="cont-form-reserva">
+            <div class="cont-titulo-form">
+                <h3 class="titulo-form">Crear Reserva</h3>
+                <div class="form-group">
+                    <label for="imput-tarjeta">Pago tarjeta</label>
+                    <input class="check" id="imput-tarjeta" type="checkbox" name="tarjeta" placeholder="">
+                </div>
+            </div>
+            <form class="form-contenido" id="crear-reserva-form" action="">
+
+                <div class="form-group">
+                    <label for="imput-nombre">Nombre</label>
+                    <input class="imput" id="imput-nombre" type="text" name="nombre" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="imput-email">Email</label>
+                    <input class="imput" id="imput-email" type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="imput-fecha-entrada">Fecha entrada</label>
+                    <input class="imput" id="imput-fecha-entrada" type="text" name="fecha-entrada" placeholder="" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="imput-fecha-salida">Fecha salida</label>
+                    <input class="imput" id="imput-fecha-salida" type="date" name="fecha-salida" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="imput-tipo">Tipo de Habitación:</label>
+                    <select class="imput" id="imput-tipo">
+                        <option value="Individual">Individual</option>
+                        <option value="Doble">Doble</option>
+                        <option value="Suite">Suite</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="imput-noches">Número de Noches:</label>
+                    <input class="imput" type="number" id="imput-noches" min="1" value="1">
+                </div>
+                
+
+                <input class="boton-submit" type="submit">
+            </form>
+        </div>
+
+        <!-- ---------------------------- FORM EDITAR -------------------------------- -->
+
+        <div class="cont-form-reserva" id="cont-form-edit-reserva">
+            <div class="cont-titulo-form">
+                <h3 class="titulo-form">Editar Reserva</h3>
+
+            </div>
+            <form class="form-contenido" id="edit-reserva-form" action="">
+
+                <div class="form-group">
+                    <label for="edit-id">Id</label>
+                    <input class="imput" id="edit-id" type="text" name="id-reserva" placeholder="Id" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="edit-nombre">Nombre</label>
+                    <input class="imput" id="edit-nombre" type="text" name="nombre" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-email">Email</label>
+                    <input class="imput" id="edit-email" type="text" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-fecha-entrada">Fecha entrada</label>
+                    <input class="imput" id="edit-fecha-entrada" type="text" name="fecha-entrada" placeholder="" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="edit-fecha-salida">Fecha salida</label>
+                    <input class="imput" id="edit-fecha-salida" type="date" name="fecha-salida" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-tipo">Tipo de Habitación</label>
+                    <select class="imput" id="edit-tipo">
+                        <option value="Individual">Individual</option>
+                        <option value="Doble">Doble</option>
+                        <option value="Suite">Suite</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-noches">Número de Noches</label>
+                    <input class="imput" type="number" id="edit-noches" min="1" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="edit-tarjeta">Pago tarjeta</label>
+                    <input class="check" id="edit-tarjeta" type="checkbox" name="tarjeta" placeholder="">
+                </div>
+                
+
+                <input class="boton-submit" type="submit" value="Editar">
+            </form>
+        </div>
+
+        <!-- ---------------------------- TABLA -------------------------------- -->
+
+        <div class="contenido">
+
+
+            <div class="cont-titulo-contenido">
+                <h4 class="titulo-contenido">Reservas</h4>
+                <button class="boton-descarga" type="button" id="boton-descarga">Descargar json</button>
+            </div>
+
+
+            <div class="data">
+
+                <table>
+                    <thead class="head-tabla-huesped">
+                        <tr>
+                            <th>Reserva N</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Fecha entrada</th>
+                            <th>Fecha salida</th>
+                            <th>Tipo habitación</th>
+                            <th>Noches</th>
+                            <th>Tipo de pago</th>
+                            <th>Pago</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="body-tabla-reserva" id="body-tabla-reserva">
+
+                        
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+        
+<!-- -FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--->
+<!-- -FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--FOOTER--->
+
+
+    <footer id="footer" class="footer">
+        <div class="cont-footer">
+            <div class="cont-logo-redes">
+                <div class="cont-logo">
+                    <img class="logo" src="/PAGINA-HOTEL-SPA/images/LOGO-HOTEL-FINAL.png" alt="" width="100px">
+                    <h2>Warriot</h2>
+                </div>
+                <div class="redes">
+                    <ul>
+                        <li><a href="https://www.facebook.com"><i class='bx bxl-facebook-circle'></i></a></li>
+                        <li><a href="https://www.instagram.com"><i class='bx bxl-instagram-alt'></i></a></li>
+                        <li><i class='bx bxl-whatsapp' ></i></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="cont-links-direccion">
+                <div class="cont-direccion">
+                    <p>Avda. Santa Fe 796, C1059ABO, Buenos Aires - Argentina</p>
+                    <p>+56 9 55555555</p>
+                </div>
+                <div class="cont-links">
+                    <div class="cont-res">
+                        <h5>Reservas</h5>
+                        <ul>
+                            <li><a href="#">Modificar / Cancelar</a></li>
+                            <li><a href="#">Reservar</a></li>
+                            <li><a href="#">nose</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cont-res">
+                        <h5>Ayuda</h5>
+                        <ul>
+                            <li><a href="#">Modificar</a></li>
+                            <li><a href="#">nose</a></li>
+                            <li><a href="#">nose</a></li>
+                        </ul>
+                    </div>
+                    <div class="cont-res">
+                        <h5>Sobre Nosotros</h5>
+                        <ul>
+                            <li><a href="#">Modificar</a></li>
+                            <li><a href="#">nose</a></li>
+                            <li><a href="#">nose</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </footer>
+
+
+    <script>
+
+        //-NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION-
+        //-NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION--NAVEGACION-
+
+        const botonHome = document.querySelectorAll('.boton-home');
+        const botonSomos = document.querySelectorAll('.boton-somos');
+        const botonContacto = document.querySelectorAll('.boton-contacto');
+        const botonReservar = document.querySelectorAll('.boton-reservar');
+
+        const Home = document.getElementById('home');
+        const Somos = document.getElementById('somos');
+        const Contacto = document.getElementById('contacto');
+        const Reservar = document.getElementById('reservar');
+
+        botonHome.forEach(btn =>{
+            btn.addEventListener('click', ()=>{
+                event.preventDefault();
+
+                Home.classList.remove('activo')
+                Somos.classList.remove('activo')
+                Contacto.classList.remove('activo')
+                Reservar.classList.remove('activo')
+
+            });
+        })
+
+        botonSomos.forEach(btn =>{
+            btn.addEventListener('click', ()=>{
+                event.preventDefault();
+
+                Home.classList.add('activo')
+                Somos.classList.add('activo')
+                Contacto.classList.remove('activo')
+                Reservar.classList.remove('activo')
+
+            });
+        })
+
+        botonContacto.forEach(btn =>{
+            btn.addEventListener('click', ()=>{
+                event.preventDefault();
+
+                Home.classList.add('activo')
+                Somos.classList.remove('activo')
+                Contacto.classList.add('activo')
+                Reservar.classList.remove('activo')
+
+            });
+        })
+
+        botonReservar.forEach(btn =>{
+            btn.addEventListener('click', ()=>{
+                event.preventDefault();
+
+                Home.classList.add('activo')
+                Somos.classList.remove('activo')
+                Contacto.classList.remove('activo')
+                Reservar.classList.add('activo')
+
+            });
+        })
+
+
+
+        //-SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION-
+        //-SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION--SESION-
+
+        function iniciarSesion(usuario){
+
+            const btnUsuario = document.getElementById('btn-usuario');
+            btnUsuario.innerHTML = usuario
+
+
+            document.querySelectorAll('.boton-login').forEach(boton =>{
+                boton.classList.add('oculto');
+            })
+
+            document.querySelectorAll('.boton-reservar').forEach(boton =>{
+                boton.classList.add('activo');
+            })
+
+            document.querySelectorAll('.menu-usuario').forEach(select =>{
+                select.classList.add('activo');
+            })
+        }
+
+        function cerrarSesion(){
+            document.querySelectorAll('.menu-usuario').forEach(menu =>{
+
+                menu.addEventListener('change', (event) => {
+                    const selectedOption = event.target.value;
+
+                    if (selectedOption === 'cerrar-sesion') {
+
+                        document.querySelectorAll('.boton-login').forEach(boton => {
+                            boton.classList.remove('oculto');
+                        });
+
+                        document.querySelectorAll('.menu-usuario').forEach(select => {
+                            select.classList.remove('activo');
+                        });
+
+                        document.querySelectorAll('.boton-reservar').forEach(boton =>{
+                            boton.classList.remove('activo');
+                        })
+
+                        event.target.value = 'user-name';
+                        alert('Se ha cerrado la sesión');
+                        location.reload();
+
+                    }
+                });
+            })
+        }
+
+            
+        
+
+
+        //-LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN-
+        //-LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN--LOGIN-
+
+
+        document.addEventListener('login-activo', function() {
+
+            const linkRegistro = document.getElementById('link-registro');
+            const linkLogin = document.getElementById('link-login');
+
+            const contForm = document.getElementById('cont-form')
+
+            linkLogin.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                contForm.classList.add('activo') 
+            });
+
+            linkRegistro.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                contForm.classList.remove('activo')
+            });
+
+        });
+
+
+        const botonLogin = document.querySelectorAll('.boton-login');
+
+        botonLogin.forEach(btnLogin =>{
+
+            btnLogin.addEventListener('click', ()=>{
+
+                const contLogin = document.getElementById('cont-login')
+
+                document.dispatchEvent(new Event('login-activo'));
+
+                if(contLogin.style.visibility == 'visible'){
+                    contLogin.style.visibility = 'hidden';
+                    btnLogin.style.backgroundColor = 'transparent';
+                } else {
+                    contLogin.style.visibility = 'visible'; 
+                    btnLogin.style.backgroundColor = '#a49264';
+                };
+            });
+
+        })
+
+
+        //----------CERRAR LOGIN--------------
+
+
+        function ocultarLogin(){
+            const contLogin = document.getElementById('cont-login');
+            contLogin.style.visibility = 'hidden'
+        }
+
+        document.addEventListener('login-activo', ()=>{
+
+            const contLogin = document.getElementById('cont-login');
+            const contForm = document.getElementById('cont-form');
+
+            window.onclick = function(event) {
+                if (event.target === contLogin) {
+                    contLogin.style.visibility = 'hidden'
+                }
+            }
+        })
+
+        const usuarios = [{user: 'diego', clave: 1234}]
+
+        // ----------VALIDACION LOGIN---------
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const formLogin = document.getElementById('form-login');
+
+            const userLogin = document.getElementById('user-login');
+            const claveLogin = document.getElementById('clave-login');
+
+            let userValido = false;
+            let claveValida = false;
+
+            console.log('login activo',userValido, claveValida);
+
+            function validarUserLogin() {
+                const userLoginError = document.getElementById('user-login-error');
+                const contEntradaUser = document.getElementById('cont-input-user');
+                const userLoginIcono = document.getElementById('user-login-icono');
+
+                const user = userLogin.value;
+
+                if (user.length < 3 || user.length > 15) {
+                    contEntradaUser.style.borderBottomColor = 'red';
+                    userLoginIcono.style.color = 'red';
+                    userLoginError.innerHTML = '*El usuario no es válido';
+                    return false;
+                } else {
+                    contEntradaUser.style.borderBottomColor = '#a49264';
+                    userLoginIcono.style.color = 'white';
+                    userLoginError.innerHTML = '';
+                    return true;
+                }
+            }
+
+            function validarClaveLogin() {
+                const claveLoginError = document.getElementById('clave-login-error');
+                const contEntradaClave = document.getElementById('cont-input-clave');
+                const claveLoginIcono = document.getElementById('clave-login-icono');
+
+                const clave = claveLogin.value;
+                const regex = /^\d{4}$/;
+
+                if (!regex.test(clave)) {
+                    contEntradaClave.style.borderBottomColor = 'red';
+                    claveLoginIcono.style.color = 'red';
+                    claveLoginError.innerHTML = '*La contraseña no es válida';
+                    return false;
+                } else {
+                    contEntradaClave.style.borderBottomColor = '#a49264';
+                    claveLoginIcono.style.color = 'white';
+                    claveLoginError.innerHTML = '';
+                    return true;
+                }
+            }
+
+            userLogin.addEventListener('blur', () => {
+                userValido = validarUserLogin();
+                if (!userValido) {
+                    userLogin.addEventListener('input', validarUserLogin);
+                } else {
+                    userLogin.removeEventListener('input', validarUserLogin);
+                }
+            });
+
+            claveLogin.addEventListener('blur', () => {
+                claveValida = validarClaveLogin();
+                if (!claveValida) {
+                    claveLogin.addEventListener('input', validarClaveLogin);
+                } else {
+                    claveLogin.removeEventListener('input', validarClaveLogin);
+                }
+            });
+
+            formLogin.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                console.log('submit login', userValido , claveValida);
+
+                if (userValido && claveValida) {
+
+                    const user = usuarios.find(usuario => usuario.user === userLogin.value && usuario.clave === parseInt(claveLogin.value));
+
+                    if (!user) {
+                        alert('El usuario o contraseña no son validos');
+
+                    }else{
+                        alert('ingreso exitoso')
+                        formLogin.reset();                        
+                        iniciarSesion(user.user)
+                        cerrarSesion()
+                        ocultarLogin()
+                       
+                    }
+                } else {
+                    console.log('Enfocar');
+                    if (!userValido) {
+                        userLogin.focus();
+                    } else if (!claveValida) {
+                        claveLogin.focus();
+                    }
+                }
+            });
+
+
+        });
+
+        function removerListeners(){
+            const formLogin = document.getElementById('form-login');
+
+            formLogin.removeEventListener('submit', ocultarLogin);
+
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ----------VALIDACION REGISTRO---------
+
+            const formRegistro = document.getElementById('form-registro');
+
+            const nombreReg = document.getElementById('nombre-registro');
+            const apellidoReg = document.getElementById('apellido-registro');
+            const emailReg = document.getElementById('email-registro');
+            const userReg = document.getElementById('user-registro');
+            const clave1Reg = document.getElementById('clave-1-reg');
+            const clave2Reg = document.getElementById('clave-2-reg');
+
+            const validaciones = {nombre: false,apellido: false,email: false,usuario: false,clave1: false,clave2: false};
+
+            var nomValido, apellValido, emailValido, userRegValido = false
+            var clave1RegValido, clave2RegValido = false
+
+
+
+            formRegistro.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                const allFieldsValid = Object.values(validaciones).every(state => state);
+
+                if (allFieldsValid) {
+
+                    const index = usuarios.findIndex(usuario => usuario.user === userReg.value);
+
+                    if (index !== -1) {
+                        alert('El usuario ya existe');
+                        userReg.focus();
+                        const errorUser = document.getElementById('user-registro-error');
+                        errorUser.innerHTML = 'El usuario ya existe';
+                    }else{
+
+                        const user = document.getElementById('user-registro').value;
+                        const nombre = document.getElementById('nombre-registro').value;
+                        const apellido = document.getElementById('apellido-registro').value;
+                        const email = document.getElementById('email-registro').value;
+                        const clave = document.getElementById('clave-1-reg').value;
+
+                        usuarios.push({user, nombre, apellido, email, clave });
+
+                        alert('Se creo el usuario: '+ user);
+
+                        formRegistro.reset()
+                        ocultarLogin()
+                    }
+                }else {
+                    alert('Rellena todos los campos')
+                }
+                 
+            });
+
+
+
+            document.querySelectorAll('.entrada.ent-reg').forEach(entry => {
+                entry.addEventListener('blur', (event) => {
+                    const idElemento = entry.getAttribute('id');
+                    const errorLabel = document.getElementById(`${idElemento}-error`);
+
+                    switch (idElemento) {
+                        case 'nombre-registro':
+                            validaciones.nombre = validarCampo(entry, errorLabel, validarNombre);
+                            break;
+                        case 'apellido-registro':
+                            validaciones.apellido = validarCampo(entry, errorLabel, validarApellido);
+                            break;
+                        case 'email-registro':
+                            validaciones.email = validarCampo(entry, errorLabel, validarEmail);
+                            break;
+                        case 'user-registro':
+                            validaciones.usuario = validarCampo(entry, errorLabel, validarUsuario);
+                            break;
+                        case 'clave-1-reg':
+                            validaciones.clave1 = validarCampo(entry, errorLabel, validarClave);
+                            break;
+                        case 'clave-2-reg':
+                            const clave1 = document.getElementById('clave-1-reg');
+                            let clave2valida = validarCampo(entry, errorLabel, validarClave);
+
+                            if (clave2valida){
+                                validaciones.clave2 = confirmarClave(clave1, entry, errorLabel);
+                            }else{
+                                errorLabel.innerHTML = '*Las claves no coinciden'
+                            }
+
+                            break;
+                        default:
+                            break;
+                    }
+                });
+            });
+
+            function validarCampo(entry, error, funcion){
+
+                let valido = funcion(entry, error);
+
+                if (!valido) {
+                    entry.addEventListener('input', () => funcion(entry, error));
+                    return valido;
+                } else {
+                    entry.removeEventListener('input', () => funcion(entry, error));
+                    return valido;
+                }
+            }
+
+            // Validación de nombre
+            function validarNombre(entry, error) {
+                const nombre = entry.value;
+                if (nombre.length < 2 || nombre.length > 50) {
+                    error.innerHTML = '*El nombre no es válido';
+                    return false;
+                } else {
+                    error.innerHTML = '';
+                    return true;
+                }
+            }
+
+            // Validación de apellido
+            function validarApellido(entry, error) {
+                const apellido = entry.value;
+                if (apellido.length < 2 || apellido.length > 50) {
+                    error.innerHTML = '*El apellido no es válido';
+                    return false;
+                } else {
+                    error.innerHTML = '';
+                    return true;
+                }
+            }
+
+            // Validación de email
+            function validarEmail(entry, error) {
+                const email = entry.value;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    error.innerHTML = '*El email no es válido';
+                    return false;
+                } else {
+                    error.innerHTML = '';
+                    return true;
+                }
+            }
+
+            // Validar usuario
+            function validarUsuario(entry, error) {
+
+                const usuario = entry.value
+
+                if (usuario.length < 3 || usuario.length > 15) {
+                    error.innerHTML = '*El usuario no es válido';
+                    return false;
+                } else {
+                    error.innerHTML = '';
+                    return true;
+                }
+            }
+
+            // Validación de contraseña
+            function validarClave(entry, error) {
+                const clave = entry.value;
+
+                const regex = /^\d{4}$/;
+
+                if (!regex.test(clave)) {
+                    error.innerHTML = '*La contraseña no es válida';
+                    return false;
+                } else {
+                    error.innerHTML = '';
+                    return true;
+                }
+            }
+
+            // Confirmación de contraseña
+            function confirmarClave(clave1, clave2, error) {
+                if (clave1.value !== clave2.value) {
+                    error.innerHTML = '*Las contraseñas no coinciden';
+                    return false;
+                } else {
+                    error.innerHTML = '';
+                    return true;
+                }
+            }
+
+        });
+
+
+
+        //-MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL-
+        //-MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL--MENU LATERAL-
+
+
+        const botonMenu = document.getElementById('boton-menu');
+        const botonMenuCerrar = document.getElementById('boton-menu-cerrar');
+
+        botonMenu.addEventListener('click', mostrarMenu);
+        botonMenuCerrar.addEventListener('click', ocultarMenu);
+
+
+
+        function ocultarMenu(){
+            const navMenu = document.getElementById('nav-menu');
+            const ancho = navMenu.offsetWidth
+
+            if (navMenu.style.transform === `translateX(-${ancho}px)`) {
+                navMenu.style.transform = `translateX(0px)`;
+            }
+            botonMenuCerrar.style.scale = '1.2'
+        }
+
+        function mostrarMenu(){
+            const navMenu = document.getElementById('nav-menu');
+            const ancho = navMenu.offsetWidth
+
+            if (navMenu.style.transform === `translateX(-${ancho}px)`) {
+                navMenu.style.transform = `translateX(0px)`;
+
+            } else {
+                navMenu.style.transform = `translateX(-${ancho}px)`;
+
+            }
+            botonMenuCerrar.style.scale = ''
+
+            
+        };
+
+        document.addEventListener('login-activo', ()=>{
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.style.transform = `translateX(0px)`;
+        })
+
+        //-CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO-
+        //-CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO--CONTACTO-
+
+        const form = document.getElementById('formulario-contacto');
+
+        form.addEventListener('submit', (event)=>{
+            event.preventDefault();
+
+            alert('Tu mensaje se envio correctamente')
+            form.reset()
+
+        });
+
+
+        //-CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES-
+        //-CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES--CARRUSELES-
+
+        function initCarrusel(carruselId, flechaIzId, flechaDeId) {
+            const carrusel = document.getElementById(carruselId);
+            const flechaIz = document.getElementById(flechaIzId);
+            const flechaDe = document.getElementById(flechaDeId);
+            let index = 0;
+
+            flechaIz.addEventListener('click', () => moverCarrusel(-1));
+            flechaDe.addEventListener('click', () => moverCarrusel(1));
+
+            function moverCarrusel(direction) {
+                const items = carrusel.children.length; // items vale 3
+
+                index = (index + direction + items) % items;
+                console.log('index vale:',index);
+                actualizarCarrusel();
+            }
+
+            function actualizarCarrusel() {
+                const ancho = carrusel.offsetWidth / 3;
+                console.log('ancho: ', ancho);
+                console.log('translate vale:', ancho * index);
+                carrusel.style.transform = `translateX(-${ancho * index}px)`;
+            }
+        }
+
+        // Inicializar ambos carruseles
+        initCarrusel('carrusel-1', 'flecha-iz-1', 'flecha-de-1');
+        initCarrusel('carrusel-2', 'flecha-iz-2', 'flecha-de-2');
+        initCarrusel('carrusel-3', 'flecha-iz-3', 'flecha-de-3');
+        initCarrusel('carrusel-baner', 'flecha-iz-baner', 'flecha-de-baner');
+
+        //-RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA-
+        //-RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA--RESERVA-
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const precios = {'Individual': 20000, 'Doble': 40000, 'Suite': 60000};
+        
+            const reservas = [];
+
+            var cont = 0
+        
+            const resultadoDiv = document.getElementById('resultado');
+            const formularioCrear = document.getElementById('crear-reserva-form');
+            const formularioEditar = document.getElementById('edit-reserva-form');
+            const bodyTabla = document.getElementById('body-tabla-reserva');
+
+            definirFecha()
+
+            // ASIGNACION DE FECHA
+            function definirFecha(){
+
+                const fechaEntradaElemento = document.getElementById('imput-fecha-entrada');
+                const dia = new Date();
+                const fecha = dia.toISOString().split('T')[0];
+                fechaEntradaElemento.value = fecha;
+            }
+
+            const botonDescarga = document.getElementById('boton-descarga');
+            botonDescarga.addEventListener('click', descargarJSON)
+
+            function descargarJSON(){
+
+                var botonDescarga = document.getElementById('boton-descarga');
+
+                if (reservas.length === 0){
+                    alert('No hay datos para descargar')
+                    botonDescarga.style.backgroundColor = 'gray';
+                }else{
+
+                    var jsonData = JSON.stringify(reservas);
+                    var blob = new Blob([jsonData], {type: 'application/json'});
+                    var url = URL.createObjectURL(blob);
+                    var link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'datos.json';
+                    link.click();
+                    URL.revokeObjectURL(url);
+
+                    botonDescarga.disabled = true;
+                    botonDescarga.style.backgroundColor = 'gray';
+                }
+
+            }
+
+            formularioCrear.addEventListener('submit', (event) => {
+                event.preventDefault();
+        
+                const nombre = document.getElementById('imput-nombre').value;
+                const email = document.getElementById('imput-email').value;
+                const fechaEntrada = document.getElementById('imput-fecha-entrada').value;
+                const fechaSalida = document.getElementById('imput-fecha-salida').value;
+                const tipo = document.getElementById('imput-tipo').value;
+                const noches = parseInt(document.getElementById('imput-noches').value);
+                const tipoPago = document.getElementById('imput-tarjeta').checked ? 'tarjeta' : 'efectivo';
+        
+                const total = precios[tipo] * noches;
+
+                cont++
+
+                const reserva = {
+                    id: cont,
+                    nombre: nombre,
+                    email: email,
+                    fecha_entrada: fechaEntrada,
+                    fecha_salida: fechaSalida,
+                    tipo: tipo,
+                    noches: noches,
+                    tipo_pago: tipoPago,
+                    total: total
+                };
+        
+                reservas.push(reserva);
+        
+                actualizarTabla();
+                formularioCrear.reset();
+                definirFecha();
+                const botonDescarga = document.getElementById('boton-descarga');
+                botonDescarga.disabled = false;
+                botonDescarga.style.backgroundColor = '';
+
+            });
+        
+            function actualizarTabla() {
+
+                let resumen = '';
+                reservas.forEach(reserva => {
+                    resumen += `
+                        <tr id="fila-${reserva.id}">
+                            <td data-label="Reserva N">${reserva.id}</td>
+                            <td data-label="Nombre">${reserva.nombre}</td>
+                            <td data-label="Email">${reserva.email}</td>
+                            <td data-label="Fecha entrada">${reserva.fecha_entrada}</td>
+                            <td data-label="Fecha salida">${reserva.fecha_salida}</td>
+                            <td data-label="Tipo habitación">${reserva.tipo}</td>
+                            <td data-label="Noches">${reserva.noches}</td>
+                            <td data-label="Tipo de pago">${reserva.tipo_pago}</td>
+                            <td data-label="Pago">${reserva.total}</td>
+                            <td data-label="Acciones">
+                                <button class="acciones editar" id="boton-editar" data-index="${reserva.id}" type="button"><i class='bx bxs-edit-alt'></i></button>
+                                <button class="acciones borrar" id="boton-borrar" data-index="${reserva.id}" type="button"><i class='bx bx-x'></i></button>
+                            </td>
+                        </tr>
+                    `;
+                });
+        
+                bodyTabla.innerHTML = resumen;
+        
+                borrarReserva();
+                cargarFormularioEdit();
+
+            }
+
+            function cargarFormularioEdit(){
+
+                document.querySelectorAll('.editar').forEach(boton => {
+                    boton.addEventListener('click', (event) => {
+
+                        const idReserva = boton.getAttribute('data-index');
+
+                        const fila = document.getElementById(`fila-${idReserva}`);
+
+                        const nombre = fila.querySelector('td:nth-child(2)').innerText
+                        const email = fila.querySelector('td:nth-child(3)').innerText
+                        const fechaEntrada = fila.querySelector('td:nth-child(4)').innerText
+                        const fechaSalida = fila.querySelector('td:nth-child(5)').innerText
+                        const tipo = fila.querySelector('td:nth-child(6)').innerText
+                        const noches = fila.querySelector('td:nth-child(7)').innerText
+                        const tipoPago = fila.querySelector('td:nth-child(8)').innerText
+                        const precio = fila.querySelector('td:nth-child(6)').innerText
+
+                        document.getElementById('edit-id').value = idReserva;
+                        document.getElementById('edit-nombre').value = nombre;
+                        document.getElementById('edit-email').value = email;
+                        document.getElementById('edit-fecha-entrada').value = fechaEntrada;
+                        document.getElementById('edit-fecha-salida').value = fechaSalida;
+                        document.getElementById('edit-tipo').value = tipo;
+                        document.getElementById('edit-noches').value = noches;
+                        //document.getElementById('edit-email').value = tipoPago;
+
+
+                        document.getElementById('cont-form-reserva').classList.remove('activo');
+                        document.getElementById('cont-form-edit-reserva').classList.add('activo')
+
+                        editarReserva();
+
+                    });
+                });
+            }
+
+            function editarReserva(){
+
+                formularioEditar.addEventListener('submit', (event)=>{
+                    event.preventDefault();
+
+                    const idReserva = parseInt( document.getElementById('edit-id').value);
+
+                    const nombre = document.getElementById('edit-nombre').value;
+                    const email = document.getElementById('edit-email').value;
+                    const fechaEntrada = document.getElementById('edit-fecha-entrada').value;
+                    const fechaSalida = document.getElementById('edit-fecha-salida').value;
+                    const tipo = document.getElementById('edit-tipo').value;
+                    const noches = parseInt(document.getElementById('edit-noches').value);
+                    const tipoPago = document.getElementById('edit-tarjeta').checked ? 'tarjeta' : 'efectivo';
+
+                    const index = reservas.findIndex(res => res.id === idReserva);
+
+                    if (index !== -1) {
+                        const reserva = reservas[index];
+                        reserva.nombre = nombre;
+                        reserva.email = email;
+                        reserva.fecha_entrada = fechaEntrada;
+                        reserva.fecha_salida = fechaSalida;
+                        reserva.tipo = tipo;
+                        reserva.noches = noches;
+                        reserva.tipo_pago = tipoPago;
+                        reserva.total = precios[tipo] * noches;
+                    }
+
+                    actualizarTabla();
+
+                    document.getElementById('cont-form-reserva').classList.add('activo');
+                    document.getElementById('cont-form-edit-reserva').classList.remove('activo')
+
+                })
+            }
+
+
+            function borrarReserva(){
+                
+                document.querySelectorAll('.borrar').forEach(boton => {
+                    boton.addEventListener('click', (event) => {
+                        const idReserva = parseInt(boton.getAttribute('data-index'));
+                        const index = reservas.findIndex(res => res.id === idReserva);
+
+                        if (index !== -1) {
+                            reservas.splice(index, 1);
+                        }
+
+                        actualizarTabla();
+                    });
+                });
+
+            }
+
+        });
+
+
+
+    </script>
+
+
+</body>
+
+</html>
