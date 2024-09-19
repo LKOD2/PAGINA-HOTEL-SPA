@@ -877,8 +877,8 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
 }
 
 .hoteles .cont-hot-texto{
-    background-color: rgba(0, 0, 0, 0.433);
-    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.605);
+    backdrop-filter: blur(5px);
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -902,19 +902,12 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
     grid-gap: 20px; 
 }
 
-@media (width < 650px){
-    .cont-habitaciones{
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
-    }
-}
-
 .habitaciones .hab{
-    min-height: 500px;
+    max-height: 80vh;
     border-radius: 15px;
     overflow: hidden;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: minmax(200px, 1fr)  1fr;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.4);
 }
 
@@ -961,6 +954,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
     text-align: center;
     background-color: whitesmoke;
     padding: 20px 30px;
+    font-size: 1.9lvh;
 }
 
 .habitaciones p{
@@ -972,7 +966,8 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
     border-bottom: 2px solid #a49264;
     margin-bottom: 12px;
 }
-@media(max-width: 1200px){
+
+@media(width < 1450px){
     .habitaciones .hab-3{
         grid-template-rows: 1fr 1fr;
         grid-column-start: 1;
@@ -980,7 +975,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
         min-height: 600px;
     }
 } 
-@media(max-width: 1025px){
+@media(width < 1025px){
     .habitaciones .hab-3{
         grid-column-start: 1;
         grid-column-end: 1;
@@ -988,7 +983,13 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
     }
 }
 
+@media (width < 400px){
+    .cont-habitaciones{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
 
+    }
+
+}
 /*-------------------servicios---------------------*/
 
 .servicio{
@@ -1004,7 +1005,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
 .servicio .bloque{
     display: grid;
     gap: 20px;
-    min-height: 600px;
+    min-height: 400px;
     width: 100%;
     padding: 30px 100px;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
@@ -1012,19 +1013,10 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
     grid-auto-flow: row; 
     grid-gap: 15px; 
 }
-@media (width < 650px){
-    .servicio .bloque{
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas con un ancho mínimo de 200px */
 
-    }
-}
-
-.servicio .bloque-img-1{
-    background-position: center center;
-    background-size: cover; 
-    border-radius: 5px;
-    min-height: 400px;
-    position: relative;
+.servicio .bloque-img.first-img{
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 .servicio .bloque-img{
@@ -1037,13 +1029,28 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
 }
 
 .servicio .cont-texto-bloque{
-
+    background-color: rgba(0, 0, 0, 0.292);
+    backdrop-filter: blur(2px);
     width: 100%;
-    min-height: 100px;
+    max-height: 100px;
     position: absolute;
     bottom: 0;
     padding: 30px;
     color: white;  
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (width < 650px){
+    .servicio .bloque{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+
+    }
+
+    .servicio .bloque-img.first-img{
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
 }
 
 /*-------------------final---------------------*/
@@ -2241,7 +2248,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
             <h1 class="titulo-body">Servicios</h1>
             
             <div class="bloque">
-                <div class="bloque-img" style="background-image: url(https://cdn.pixabay.com/photo/2021/02/03/11/32/gym-5977600_1280.jpg);">
+                <div class="bloque-img first-img" style="background-image: url(https://cdn.pixabay.com/photo/2021/02/03/11/32/gym-5977600_1280.jpg);">
                     <div class="cont-texto-bloque">
                         <h2>gimnacio</h2>
                         <P></P>
