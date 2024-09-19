@@ -88,7 +88,6 @@
     width: 350px;
     height: 350px;
     background-color: #1a1a1a;
-    /* backdrop-filter: blur(10px); */
     border-radius: 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     transition: height 0.2s ease, width 0.2s ease;
@@ -897,8 +896,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
     min-width: 200px;
     padding: 0 100px;
     margin-bottom: 100px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-auto-rows: auto;
     grid-auto-flow: row; 
     grid-gap: 20px; 
@@ -1009,7 +1007,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
     min-height: 600px;
     width: 100%;
     padding: 30px 100px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
     grid-auto-rows: auto; 
     grid-auto-flow: row; 
     grid-gap: 15px; 
@@ -1735,13 +1733,12 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
     }
 
 
-    /* ----- tabla ----- */
-
-    /* .contenido table {
+    /* Estilos básicos para la tabla */
+    .contenido table {
         width: 100%;
         border-collapse: collapse;
         margin: 0;
-        max-height: 200px;
+        max-height: auto;
     }
 
     .contenido th, td {
@@ -1758,71 +1755,45 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
     .contenido tr:nth-child(even) {
         background-color: #f9f9f9;
     }
-     */
 
+    /* Media query para pantallas pequeñas */
+    @media screen and (max-width: 600px) {
+        .contenido table, .contenido thead, .contenido tbody, .contenido th, .contenido td, .contenido tr {
+            display: block;
+        }
 
+        /* Ocultar cabecera de la tabla en pantallas pequeñas */
+        .contenido thead tr {
+            display: none;
+        }
 
-/* Estilos básicos para la tabla */
-.contenido table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0;
-    max-height: auto;
-}
+        /* Estilos para filas y celdas */
+        .contenido tr {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
 
-.contenido th, td {
-    border: 1px solid #ccc;
-    padding: 5px;
-    text-align: left;
-}
+        .contenido td {
+            border: none;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-left: 50%;
+            text-align: right;
+            padding-right: 20px;
+        }
 
-.contenido th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-
-.contenido tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* Media query para pantallas pequeñas */
-@media screen and (max-width: 600px) {
-    .contenido table, .contenido thead, .contenido tbody, .contenido th, .contenido td, .contenido tr {
-        display: block;
+        /* Añadir pseudo-elementos antes de las celdas */
+        .contenido td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 10px;
+            width: calc(50% - 20px);
+            padding-right: 10px;
+            text-align: left;
+            white-space: nowrap;
+            font-weight: bold;
+        }
     }
-
-    /* Ocultar cabecera de la tabla en pantallas pequeñas */
-    .contenido thead tr {
-        display: none;
-    }
-
-    /* Estilos para filas y celdas */
-    .contenido tr {
-        margin-bottom: 15px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .contenido td {
-        border: none;
-        border-bottom: 1px solid #ddd;
-        position: relative;
-        padding-left: 50%;
-        text-align: right;
-        padding-right: 20px;
-    }
-
-    /* Añadir pseudo-elementos antes de las celdas */
-    .contenido td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: calc(50% - 20px);
-        padding-right: 10px;
-        text-align: left;
-        white-space: nowrap;
-        font-weight: bold;
-    }
-}
 
 
     /* ----- botones-editar-eliminar ----- */
@@ -1867,8 +1838,6 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
 <div class="contenedor-login" id="cont-login">
 
     <div class="cont-form" id="cont-form">
-        
-        <!-- <img class="img" src="/PAGINA-HOTEL-SPA/images/LOGO-HOTEL-FINAL.png" alt=""> -->
 
         <form action="" id="form-login" class="formulario form-login">
             
@@ -1993,8 +1962,6 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
                 </select>
 
             </nav>
-            <!-- <button id="boton-ran" class="boton-login" onclick="iniciarSesion('diego')"  type="button">reserva</button> -->
-
 
             <div class="boton-menu" id="boton-menu">
                 <i class='bx bx-menu open'></i>
@@ -2048,10 +2015,10 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
             </div>
             
             <div class="carrusel-baner" id="carrusel-baner">
-                <div class="img-baner" style="background-image: url('https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg');">
+                <div class="img-baner" style="background-image: url(https://cdn.pixabay.com/photo/2016/08/26/20/30/hotel-1623064_1280.jpg);">
                     <div>1</div>
                 </div>
-                <div class="img-baner" style="background-image: url(/PAGINA-HOTEL-SPA/images/lobby-1.jpg);">
+                <div class="img-baner" style="background-image: url(https://cdn.pixabay.com/photo/2020/03/15/13/07/castle-4933565_1280.jpg);">
                     <div>2</div>
                 </div>
                 <div class="img-baner" style="background-image: url(/PAGINA-HOTEL-SPA/images/lobby-2.jpg);">
@@ -2079,7 +2046,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
             <h1 class="titulo-body">hoteles</h1>
 
             <div class="grid">
-                <div class="grid-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/grid-hotel-1.jpg);">
+                <div class="grid-img" style="background-image: url(https://cdn.pixabay.com/photo/2012/11/21/10/24/building-66789_1280.jpg);">
                     <div class="cont-hot-texto">
                         <h2>Buenos Aires</h2>
                         <P></P>
@@ -2087,14 +2054,14 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
                     </div>
                 </div>
                     
-                <div class="grid-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/grid-hotel-2.jpg);">
+                <div class="grid-img" style="background-image: url(https://cdn.pixabay.com/photo/2014/10/03/03/31/building-470925_1280.jpg);">
                     <div class="cont-hot-texto">
                         <h2>Madrid</h2>
                         <P></P>
                         <button class="boton" type="button"> Ver Mas</button>
                     </div>
                 </div>
-                <div class="grid-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/grid-hotel-3.jpg);">
+                <div class="grid-img" style="background-image: url(https://cdn.pixabay.com/photo/2019/03/31/14/31/houses-4093227_1280.jpg);">
                     <div class="cont-hot-texto">
                         <h2>Roma</h2>
                         <P></P>
@@ -2123,13 +2090,13 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
                         </div>
                         <div class="carrusel" id="carrusel-1">
                             
-                            <div class="cont-img" id="s1-img-1" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-simple.jpg);">
+                            <div class="cont-img" id="s1-img-1" style="background-image: url(https://cdn.pixabay.com/photo/2016/04/15/11/43/hotel-1330834_1280.jpg);">
                                 <div></div>
                             </div>
                             <div class="cont-img" id="s1-img-2" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño.jpg);">
                                 <div></div>
                             </div>
-                            <div class="cont-img" id="s1-img-3" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño-2.jpg);">
+                            <div class="cont-img" id="s1-img-3" style="background-image: url(https://cdn.pixabay.com/photo/2016/10/13/09/08/travel-1737171_1280.jpg);">
                                 <div></div>
                             </div>
                         </div>
@@ -2155,13 +2122,13 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
                         </div>
                         <div class="carrusel" id="carrusel-2">
                             
-                            <div class="cont-img" id="s1-img-1" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-doble.jpg);">
+                            <div class="cont-img" id="s1-img-1" style="background-image: url(https://cdn.pixabay.com/photo/2016/10/13/09/06/luxury-villas-1737167_1280.jpg);">
                                 <div></div>
                             </div>
                             <div class="cont-img" id="s1-img-2" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño.jpg);">
                                 <div></div>
                             </div>
-                            <div class="cont-img" id="s1-img-3" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño-2.jpg);">
+                            <div class="cont-img" id="s1-img-3" style="background-image: url(https://cdn.pixabay.com/photo/2016/10/13/09/08/travel-1737171_1280.jpg);">
                                 <div></div>
                             </div>
                         </div>
@@ -2188,13 +2155,13 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
                         </div>
                         <div class="carrusel" id="carrusel-3">
                             
-                            <div class="cont-img" id="s1-img-1" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-suite.jpg);">
+                            <div class="cont-img" id="s1-img-1" style="background-image: url(https://cdn.pixabay.com/photo/2015/11/06/11/45/interior-1026452_1280.jpg);">
                                 <div></div>
                             </div>
                             <div class="cont-img" id="s1-img-2" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño.jpg);">
                                 <div></div>
                             </div>
-                            <div class="cont-img" id="s1-img-3" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-baño-2.jpg);">
+                            <div class="cont-img" id="s1-img-3" style="background-image: url(https://cdn.pixabay.com/photo/2016/10/13/09/08/travel-1737171_1280.jpg);">
                                 <div></div>
                             </div>
                         </div>
@@ -2274,35 +2241,35 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
             <h1 class="titulo-body">Servicios</h1>
             
             <div class="bloque">
-                <div class="bloque-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/servicios-gym.jpg);">
+                <div class="bloque-img" style="background-image: url(https://cdn.pixabay.com/photo/2021/02/03/11/32/gym-5977600_1280.jpg);">
                     <div class="cont-texto-bloque">
                         <h2>gimnacio</h2>
                         <P></P>
                         <button class="boton" type="button"> Ver Mas</button>
                     </div>
                 </div>
-                <div class="bloque-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/habitacion-2.jpg);">
+                <div class="bloque-img" style="background-image: url(https://cdn.pixabay.com/photo/2016/12/20/21/37/breakfast-hotel-1921530_1280.jpg);">
                     <div class="cont-texto-bloque">
                         <h2>Comodidad</h2>
                         <P></P>
                         <button class="boton" type="button"> Ver Mas</button>
                     </div>
                 </div>
-                <div class="bloque-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/servicios-bar.jpg);">
+                <div class="bloque-img" style="background-image: url(https://cdn.pixabay.com/photo/2015/07/15/19/34/cocktail-846833_1280.jpg);">
                     <div class="cont-texto-bloque">
                         <h2>Bar</h2>
                         <P></P>
                         <button class="boton" type="button"> Ver Mas</button>
                     </div>
                 </div>
-                <div class="bloque-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/servicios-vino.jpg);">
+                <div class="bloque-img" style="background-image: url(https://cdn.pixabay.com/photo/2017/08/08/08/59/pasta-2610762_1280.jpg);">
                     <div class="cont-texto-bloque">
                         <h2>Comida</h2>
                         <P></P>
                         <button class="boton" type="button"> Ver Mas</button>
                     </div>
                 </div>
-                <div class="bloque-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/servicios-picina.jpg);">
+                <div class="bloque-img" style="background-image: url(https://cdn.pixabay.com/photo/2017/05/31/10/23/manor-house-2359884_1280.jpg);">
                     <div class="cont-texto-bloque">
                         <h2>picina</h2>
                         <P></P>
@@ -2317,7 +2284,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
 
         <section id="final" class="final">
             <div class="cont-final">
-                <div class="cont-final-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/final-imagen.jpg);"></div>
+                <div class="cont-final-img" style="background-image: url(https://cdn.pixabay.com/photo/2017/06/24/14/13/buenos-aires-2437858_1280.jpg);"></div>
                 <div class="cont-final-texto">
                     <h2>Bienvenido a la ciudad de la furia</h2>
                     <p>Recorrer las calles de la ciudad de Buenos Aires en Argentina,
@@ -2337,7 +2304,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
 
     <SECtion class="somos" id="somos">
 
-        <div class="baner" style="background-image: url(/PAGINA-HOTEL-SPA/images/lobby-1.jpg);">
+        <div class="baner" style="background-image: url(https://cdn.pixabay.com/photo/2016/08/26/20/30/hotel-1623064_1280.jpg);">
             <div class="cont-titulo-baner">
                 <p></p>
                 <h1>Nuestra compañia</h1>
@@ -2355,7 +2322,6 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
                 </ul>
             </nav>
         </section>
-        
         
         <section class="valores" id="valores">
             <div class="cont-valores">
@@ -2397,7 +2363,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
             <h1 class="titulo-body">Historia</h1>
         
             <div class="cont-historia">
-                <div class="cont-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/hotel-antiguo.jpg);"></div>
+                <div class="cont-img" style="background-image: url(https://cdn.pixabay.com/photo/2022/11/02/19/24/hotel-7565884_960_720.jpg);"></div>
                 
                 <div class="cont-texto">
                     <h2>Nuestro inicio</h2>
@@ -2433,7 +2399,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
                     </p>
                 </div>
         
-                <div class="cont-img" style="background-image: url(/PAGINA-HOTEL-SPA/images/hotel-antiguo.jpg);"></div>
+                <div class="cont-img" style="background-image: url(https://cdn.pixabay.com/photo/2022/11/02/19/24/hotel-7565884_960_720.jpg);"></div>
             </div>
         </section>
         
@@ -2445,7 +2411,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
 
     <section class="contacto" id="contacto">
 
-        <div class="baner" style="background-image: url(/PAGINA-HOTEL-SPA/images/lobby-2.jpg);">
+        <div class="baner" style="background-image: url(https://cdn.pixabay.com/photo/2014/05/30/18/30/vancouver-358515_1280.jpg);">
             <div class="cont-titulo-baner">
                 <p>¿Como podemos ayudarte?</p>
                 <h1>Contactanos</h1>
@@ -2859,7 +2825,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
             }
         })
 
-        const usuarios = [{user: 'diego', clave: 1234}]
+        const usuarios = [{user: 'diego', clave: '1234'}]
 
         // ----------VALIDACION LOGIN---------
 
@@ -2936,13 +2902,24 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
             formLogin.addEventListener('submit', (event) => {
                 event.preventDefault();
 
+                const userLogin = document.getElementById('user-login');
+                const claveLogin = document.getElementById('clave-login');
+
+                console.log(userLogin.value, claveLogin.value);
+
+                console.log(usuarios);
+                
+                
+
                 console.log('submit login', userValido , claveValida);
 
                 if (userValido && claveValida) {
 
-                    const user = usuarios.find(usuario => usuario.user === userLogin.value && usuario.clave === parseInt(claveLogin.value));
+                    const user = usuarios.find(usuario => usuario.user === userLogin.value && usuario.clave === claveLogin.value);
 
                     if (!user) {
+                        console.log(user);
+                        
                         alert('El usuario o contraseña no son validos');
 
                     }else{
@@ -2954,7 +2931,6 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
                        
                     }
                 } else {
-                    console.log('Enfocar');
                     if (!userValido) {
                         userLogin.focus();
                     } else if (!claveValida) {
@@ -3058,8 +3034,6 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
 
                             if (clave2valida){
                                 validaciones.clave2 = confirmarClave(clave1, entry, errorLabel);
-                            }else{
-                                errorLabel.innerHTML = '*Las claves no coinciden'
                             }
 
                             break;
@@ -3140,7 +3114,7 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
                 const regex = /^\d{4}$/;
 
                 if (!regex.test(clave)) {
-                    error.innerHTML = '*La contraseña no es válida';
+                    error.innerHTML = '*Ingresa 4 números';
                     return false;
                 } else {
                     error.innerHTML = '';
@@ -3401,8 +3375,6 @@ h1, h2, h3, h4, h5{font-family: 'cinzel';}
                         document.getElementById('edit-fecha-salida').value = fechaSalida;
                         document.getElementById('edit-tipo').value = tipo;
                         document.getElementById('edit-noches').value = noches;
-                        //document.getElementById('edit-email').value = tipoPago;
-
 
                         document.getElementById('cont-form-reserva').classList.remove('activo');
                         document.getElementById('cont-form-edit-reserva').classList.add('activo')
